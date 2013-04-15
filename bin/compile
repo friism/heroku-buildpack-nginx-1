@@ -31,8 +31,7 @@ cat <<EOF >"$BUILD_DIR/bin/start_nginx"
 #!/usr/bin/env bash
 
 #setup ruby
-
-unicorn -N -c unicorn.rb -p 5000 &
+start_ruby
 
 #setup nginx
 erb conf/nginx.conf.erb > conf/nginx.conf
@@ -42,3 +41,5 @@ touch logs/access.log logs/error.log
 exec bin/nginx -p .
 EOF
 chmod +x "$BUILD_DIR/bin/start_nginx"
+chmod +x "$BUILD_DIR/start_ruby"
+
