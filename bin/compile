@@ -32,7 +32,7 @@ cat <<EOF >"$BUILD_DIR/bin/start_nginx"
 
 #setup ruby
 
-unicorn -D -N -c unicorn.rb -p 5000
+unicorn -N -c unicorn.rb -p 5000 &
 
 #setup nginx
 erb conf/nginx.conf.erb > conf/nginx.conf
